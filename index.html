@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bukukucari</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+   /* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #1f9bde;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container2 {
+    padding: 16px;
+    width:100%;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 40px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 250px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 50%;
+    }
+}
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      min-height: 200px;
+    }
+
+    /* Hide the carousel text when the screen is less than 600 pixels wide */
+    @media (max-width: 600px) {
+      .carousel-caption {
+        display: none; 
+    
+    }
+    input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin:15px;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#" ></a>
+      <div class="logo">
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <form>
+          <input type="text" name="search" placeholder="Search..">
+          </form>
+        </li>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="images/log.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container2">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+      <br>
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+      <br>
+      <button type="submit">Login</button><br>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+    <div class="container2" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</div>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-8">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousle" data-slide-to="1"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="images/BOOK1.jpg" alt="Image">
+          <div class="carousel-caption">
+            <h3>Sell $</h3>
+            <p>Money Money.</p>
+          </div>      
+        </div>
+
+        <div class="item">
+          <img src="images/BOOK2.jpg" alt="Image">
+          <div class="carousel-caption">
+            <h3>More Sell $</h3>
+            <p>Lorem ipsum...</p>
+          </div>      
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="well">
+     <img src="images/free.jpg">
+    </div>
+    <div class="well">
+       <img src="images/murah.jpg">
+    </div>
+    <div class="well">
+       <img src="images/services.jpg">
+    </div>
+  </div>
+</div>
+<hr>
+</div>
+
+<div class="container text-center">    
+  <h3>What We Do</h3>
+  <br>
+  <div class="row">
+    <div class="col-sm-3">
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <p>Current Project</p>
+    </div>
+    <div class="col-sm-3"> 
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <p>Project 2</p>    
+    </div>
+    <div class="col-sm-3">
+      <div class="well">
+       <p>Toko E-book Online Terpercaya
+
+<p>Pada jaman serba digital seperti sekarang, mencari informasi dan ilmu melalui komputer ataupun gadget sudah umum dilakukan. Dengan banyaknya e-book yang beredar,masyarakat umum akan lebih mudah untuk membaca buku secara digital dengan lebih murah. Bukupedia (sebelumnya bookoopedia) sebagai toko buku online hadir untuk membantu pembaca dalam mencari e-book yang mereka inginkan dengan mudah. Beragam e-book dari berbagai penerbit seperti Garudhawaca dan Bisnis2030 dapat dipesan di Bukupedia...</p></p>
+      </div>
+      
+    </div>
+    <div class="col-sm-3">
+      <div class="well">
+       <p>Beli E-book di Bukupedia
+
+Untuk memudahkan Anda mencari e-book, Bukupedia menyediakan beragam buku dari berbagai penerbit yang dapat dipesan dengan mudah. Tidak hanya mudah dalam mencari buku, Bukupedia juga memberikan gratis ongkos kirim ke seluruh wilayah Indonesia, dengan mengikuti syarat dan ketentuan yang berlaku. Anda tidak perlu khawatir terhadap keamanan pembayaran online serta buku-buku yang ada di Bukupedia. Kami telah melayani ribuan transaksi online untuk buku Indonesia dan buku impor sejak tahun 2007...</p>
+      </div>
+    
+    </div>  
+  </div>
+  <hr>
+</div>
+
+<div class="container text-center">    
+  <h3>PILIHAN BUKU</h3>
+  <br>
+  <div class="row">
+    <div class="col-sm-2">
+      <img src="images/b1.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Harga : Rp.70.000</p>
+      <p>Teknologi Informasi dan komunikasi...</p>
+      <button type="button" class="btn btn-primary">Buy now</button>
+    </div>
+    <div class="col-sm-2"> 
+      <img src="images/b2.jpg" class="img-responsive" style="width:100%" alt="Image">
+     <p>Harga : Rp.60.000</p>
+      <p>Teknologi Informasi dan komunikasi...</p>  
+      <button type="button" class="btn btn-primary">Buy now</button>
+    </div>
+    <div class="col-sm-2"> 
+      <img src="images/b1.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Harga : Rp.70.000</p>
+      <p>Teknologi Informasi dan komunikasi...</p>
+      <button type="button" class="btn btn-primary">Buy now</button>
+    </div>
+    <div class="col-sm-2"> 
+      <img src="images/b2.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Harga : Rp.90.000</p>
+      <p>Teknologi Informasi dan komunikasi...</p>
+      <button type="button" class="btn btn-primary">Buy now</button>
+    </div> 
+    <div class="col-sm-2"> 
+      <img src="images/b1.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Harga : Rp.50.000</p>
+      <p>Teknologi Informasi dan komunikasi...</p>
+      <button type="button" class="btn btn-primary">Buy now</button>
+    </div>     
+    <div class="col-sm-2"> 
+      <img src="images/b2.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Harga : Rp.100.000</p>
+      <p>Teknologi Informasi dan komunikasi...</p>
+      <button type="button" class="btn btn-primary">Buy now</button>
+    </div> 
+  </div>
+</div><br>
+<ul class="pagination">
+  <li><a href="#">1</a></li>
+  <li class="active"><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+</ul>
+<div class="container-fluid text-center">
+  <p><img src="images/disk.jpg" width="100%" hight="100%"></p>
+</div>
+<footer class="container-fluid text-center">
+  <p>&COPY NITAADJOH</p>
+</footer>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</body>
+</html>
